@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hivemind - The Heavy Duty Chatbot</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+    {
+        "imports":{
+            "three":"https://unpkg.com/three@0.162.0/build/three.module.js",
+            "three/addons/":"https://unpkg.com/three@0.162.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="home-button" id="homeBtn">
+            <span class="home-icon">⌂</span>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#contacts" class="dropdown-item">Contacts</a>
+                <a href="#more-info" class="dropdown-item">More Info</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main class="hero-section">
+        <div class="content-wrapper">
+            <h1 class="main-title prosto-one-regular" data-text="Try Hivemind today">
+                Try Hivemind today
+            </h1>
+            <p class="subtitle sansation-regular">The heavy duty chatbot</p>
+            
+            <div class="email-container glass-effect">
+                <input 
+                    type="email" 
+                    id="emailInput" 
+                    class="email-input sansation-regular" 
+                    placeholder="Enter your email to get started"
+                    autocomplete="email"
+                >
+                <button class="submit-btn sansation-bold" id="submitBtn">
+                    <span class="btn-text">Get Started</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <span class="checkmark">✓</span>
+                <span>Thank you! We'll be in touch soon.</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feature Sections (scroll triggered) -->
+    <section class="features-section" id="features">
+        <div class="feature-card glass-effect" data-animation="fade-up">
+            <h3 class="prosto-one-regular">Intelligent Conversations</h3>
+            <p class="sansation-light">Experience AI that understands context and nuance</p>
+        </div>
+        <div class="feature-card glass-effect" data-animation="fade-up" data-delay="200">
+            <h3 class="prosto-one-regular">Heavy Duty Performance</h3>
+            <p class="sansation-light">Built to handle complex queries at scale</p>
+        </div>
+        <div class="feature-card glass-effect" data-animation="fade-up" data-delay="400">
+            <h3 class="prosto-one-regular">Seamless Integration</h3>
+            <p class="sansation-light">Works with your existing workflow</p>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script type="module" src="particle-system.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

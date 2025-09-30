@@ -1,0 +1,333 @@
+/* CSS Variables */
+:root {
+    --flame-pea: #d56234;
+    --tall-poppy: #b24526;
+    --trinidad: #df4d0d;
+    --cinderella: #fce4cf;
+    --red-robin: #7b361f;
+    --texas-rose: #fda852;
+    --corvette: #f9c392;
+    --copperfield: #d9875b;
+    --cedar: #4a2319;
+    --main-dark: #2596be;
+    --glass-bg: rgba(37, 150, 190, 0.1);
+    --glass-border: rgba(37, 150, 190, 0.2);
+}
+
+/* Font Classes */
+.prosto-one-regular {
+    font-family: "Prosto One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sansation-light {
+    font-family: "Sansation", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.sansation-regular {
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sansation-bold {
+    font-family: "Sansation", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: var(--cinderella);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Particle Canvas */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.home-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover {
+    background: rgba(37, 150, 190, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(37, 150, 190, 0.3);
+}
+
+.home-icon {
+    font-size: 24px;
+    color: var(--main-dark);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    color: var(--cinderella);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    font-family: "Sansation", sans-serif;
+}
+
+.dropdown-item:hover {
+    background: rgba(37, 150, 190, 0.2);
+    color: var(--main-dark);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.content-wrapper {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.main-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--main-dark);
+    margin-bottom: 20px;
+    position: relative;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(37, 150, 190, 0.5); }
+    50% { text-shadow: 0 0 40px rgba(37, 150, 190, 0.8), 0 0 60px rgba(37, 150, 190, 0.4); }
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    color: var(--corvette);
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+/* Glass Effect */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(37, 150, 190, 0.1);
+}
+
+/* Email Container */
+.email-container {
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.email-container:focus-within {
+    box-shadow: 0 8px 32px rgba(37, 150, 190, 0.3);
+    border-color: var(--main-dark);
+}
+
+.email-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: var(--cinderella);
+    outline: none;
+}
+
+.email-input::placeholder {
+    color: rgba(252, 228, 207, 0.5);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--main-dark), var(--trinidad));
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: var(--cinderella);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(223, 77, 13, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.btn-loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cinderella);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.submit-btn.loading .btn-text {
+    display: none;
+}
+
+.submit-btn.loading .btn-loader {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success Message */
+.success-message {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: rgba(40, 167, 69, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: #28a745;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.success-message.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.checkmark {
+    font-size: 20px;
+}
+
+/* Features Section */
+.features-section {
+    padding: 100px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.feature-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-card h3 {
+    color: var(--main-dark);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    color: var(--corvette);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .email-container {
+        flex-direction: column;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+    
+    .features-section {
+        grid-template-columns: 1fr;
+    }
+}
